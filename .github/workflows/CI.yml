@@ -22,9 +22,7 @@ jobs:
         # Remove-Item .\VulkanSDK\Demos, .\VulkanSDK\Samples, .\VulkanSDK\Third-Party, .\VulkanSDK\Tools, .\VulkanSDK\Tools32, .\VulkanSDK\Bin32, .\VulkanSDK\Lib32 -Recurse
     - name: build
       run: |
-        $env:VULKAN_SDK="$(pwd)/VulkanSDK"
-        $env:Vulkan_LIBRARY="$(pwd)/VulkanSDK/lib/vulkan-1.lib"
-        $env:Vulkan_INCLUDE_DIR="$(pwd)/VulkanSDK/include"
+        $env:VULKAN_SDK="$(pwd)/VulkanSDK/Bin"
         mkdir build; cd build
         cmake -A x64 ../src
         cmake --build . --config Release -j 2
