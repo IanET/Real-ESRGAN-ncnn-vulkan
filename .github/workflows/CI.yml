@@ -23,6 +23,8 @@ jobs:
     - name: build
       run: |
         $env:VULKAN_SDK="$(pwd)/VulkanSDK"
+        $env:Vulkan_LIBRARY="$(pwd)/VulkanSDK/lib/vulkan-1.lib"
+        $env:Vulkan_INCLUDE_DIR="$(pwd)/VulkanSDK/include"
         mkdir build; cd build
         cmake -A x64 ../src
         cmake --build . --config Release -j 2
