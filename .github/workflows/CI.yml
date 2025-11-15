@@ -20,10 +20,10 @@ jobs:
         Invoke-WebRequest -Uri https://sdk.lunarg.com/sdk/download/1.4.328.1/windows/vulkansdk-windows-X64-1.4.328.1.exe?Human=true -OutFile vulkansdk-windows-X64-1.4.328.1.exe
         # 7z x -aoa ./vulkansdk-windows-X64-1.4.328.1.exe -oVulkanSDK
         # Remove-Item .\VulkanSDK\Demos, .\VulkanSDK\Samples, .\VulkanSDK\Third-Party, .\VulkanSDK\Tools, .\VulkanSDK\Tools32, .\VulkanSDK\Bin32, .\VulkanSDK\Lib32 -Recurse
-        ./vulkansdk-windows-X64-1.4.328.1.exe --platform windows --accept-licenses
+        ./vulkansdk-windows-X64-1.4.328.1.exe in --al --da 
     - name: build
       run: |
-        $env:VULKAN_SDK="$(pwd)/VulkanSDK/Bin"
+        $env:VULKAN_SDK="$(pwd)/VulkanSDK/1.4.328.1"
         mkdir build; cd build
         cmake -A x64 ../src
         cmake --build . --config Release -j 2
